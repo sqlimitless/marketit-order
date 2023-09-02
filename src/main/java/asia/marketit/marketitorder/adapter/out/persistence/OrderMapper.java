@@ -4,17 +4,17 @@ import asia.marketit.marketitorder.domain.OrderDto;
 import asia.marketit.marketitorder.domain.OrderItemDto;
 
 public class OrderMapper {
-    public static OrderEntity toEntity(OrderDto order) {
-        OrderEntity orderEntity = OrderEntity.builder()
+    public static asia.marketit.marketitorder.adapter.out.persistence.OrderEntity toEntity(OrderDto order) {
+        asia.marketit.marketitorder.adapter.out.persistence.OrderEntity orderEntity = asia.marketit.marketitorder.adapter.out.persistence.OrderEntity.builder()
                 .orderIdx(order.getOrderIdx())
                 .customerIdx(order.getCustomerIdx())
                 .build();
         orderEntity.updateOrderStatus(order.getOrderStatus());
-        orderEntity.setOrderItems(order.getOrderItemDtos().stream().map(OrderMapper::toOrderItemEntity).toList());
+        orderEntity.addOrderItems(order.getOrderItemDtos().stream().map(OrderMapper::toOrderItemEntity).toList());
         return orderEntity;
     }
 
-    public static OrderDto toOrder(OrderEntity orderEntity){
+    public static OrderDto toOrder(asia.marketit.marketitorder.adapter.out.persistence.OrderEntity orderEntity){
         return OrderDto.builder()
                 .orderIdx(orderEntity.getOrderIdx())
                 .orderStatus(orderEntity.getOrderStatus())

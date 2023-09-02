@@ -46,12 +46,13 @@ public class OrderEntity {
     private LocalDateTime modDate;
 
     @Builder
-    public OrderEntity(long orderIdx, long customerIdx) {
+    public OrderEntity(long orderIdx, long customerIdx, OrderStatus orderStatus) {
         this.orderIdx = orderIdx;
         this.customerIdx = customerIdx;
+        this.orderStatus = orderStatus;
     }
 
-    public void setOrderItems(List<OrderItemEntity> orderItemEntities) {
+    public void addOrderItems(List<OrderItemEntity> orderItemEntities) {
         if (orderItemEntities == null) {
             return;
         }
