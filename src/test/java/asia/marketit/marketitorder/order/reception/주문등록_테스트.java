@@ -1,4 +1,4 @@
-package asia.marketit.marketitorder.orderReception;
+package asia.marketit.marketitorder.order.reception;
 
 import asia.marketit.marketitorder.adapter.out.persistence.*;
 import asia.marketit.marketitorder.domain.OrderDto;
@@ -64,15 +64,15 @@ public class 주문등록_테스트 {
         OrderEntity orderEntity = OrderEntity.builder()
                 .customerIdx(1L)
                 .build();
-        orderEntity.setOrderItems(orderItemEntities);
+        orderEntity.addOrderItems(orderItemEntities);
 
-        when(orderRepository.save(any(OrderEntity.class))).thenReturn(orderEntity);
+        when(orderRepository.save(any(asia.marketit.marketitorder.adapter.out.persistence.OrderEntity.class))).thenReturn(orderEntity);
 
         // When
-        OrderDto orderRtn = orderPersistenceAdapter.save(order);
+        OrderEntity orderRtn = orderPersistenceAdapter.save(orderEntity);
         // Then
         assertEquals(orderEntity.getTotalPrice(), orderRtn.getTotalPrice());
         assertEquals(orderEntity.getTotalPrice(), 7000);
-        verify(orderRepository).save(any(OrderEntity.class));
+        verify(orderRepository).save(any(asia.marketit.marketitorder.adapter.out.persistence.OrderEntity.class));
     }
 }
