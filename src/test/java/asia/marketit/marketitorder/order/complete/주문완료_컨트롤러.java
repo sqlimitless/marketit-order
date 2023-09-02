@@ -2,7 +2,7 @@ package asia.marketit.marketitorder.order.complete;
 
 import asia.marketit.marketitorder.adapter.in.web.OrderCompleteController;
 import asia.marketit.marketitorder.adapter.out.persistence.OrderStatus;
-import asia.marketit.marketitorder.application.port.in.OrderCompleteUsecase;
+import asia.marketit.marketitorder.application.port.in.OrderCompleteUseCase;
 import asia.marketit.marketitorder.domain.OrderDto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,7 +27,7 @@ public class 주문완료_컨트롤러 {
     private MockMvc mockMvc;
 
     @MockBean
-    private OrderCompleteUsecase orderCompleteUsecase;
+    private OrderCompleteUseCase orderCompleteUsecase;
 
     @Test
     public void 컨트롤러_테스트() throws Exception {

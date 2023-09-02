@@ -1,6 +1,6 @@
 package asia.marketit.marketitorder.adapter.in.web;
 
-import asia.marketit.marketitorder.application.port.in.OrderCompleteUsecase;
+import asia.marketit.marketitorder.application.port.in.OrderCompleteUseCase;
 import asia.marketit.marketitorder.domain.OrderDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class OrderCompleteController {
 
-    private final OrderCompleteUsecase orderCompleteUsecase;
+    private final OrderCompleteUseCase orderCompleteUsecase;
 
     @PatchMapping("/orders/{orderId}/complete")
     public ResponseEntity<OrderDto> orderComplete(@PathVariable("orderId") Long orderId) {

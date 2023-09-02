@@ -8,3 +8,5 @@ H2
 - JDBC URL: jdbc:h2:~/test
 - user: sa
 - pass:
+
+헥사고날 아케텍처로 작업했습니다.
